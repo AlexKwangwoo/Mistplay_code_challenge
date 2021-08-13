@@ -30,7 +30,7 @@ function search_byfilter_with_exception(word_list, keyword, exception) {
   let { finalResult, totalResult } = search_byfilter(word_list, keyword);
   let the_most_similar_word;
   if (finalResult.length > 0) {
-    const exception_result = search_byfilter(totalResult, exception);
+    const exception_result = search_byfilter(finalResult, exception);
     if (exception_result !== null) {
       the_most_similar_word = exception_result.finalResult[0];
     }

@@ -11,7 +11,6 @@ function Search({ fileService }) {
   console.log("result", result);
   const onSubmit = async (event) => {
     event.preventDefault();
-    setFirst(false);
     if (exception !== null) {
       history.push(`/search?keyword=${keyword}&exception=${exception}`);
       await fileService
@@ -20,6 +19,7 @@ function Search({ fileService }) {
           setKeyword("");
           setException("");
           setResult(data);
+          setFirst(false);
         })
         .catch(console.log);
     } else {
@@ -29,6 +29,7 @@ function Search({ fileService }) {
         .then((data) => {
           setKeyword("");
           setResult(data);
+          setFirst(false);
         })
         .catch(console.log);
     }
