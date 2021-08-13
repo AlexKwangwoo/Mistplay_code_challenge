@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { MDBInput } from "mdbreact";
 
 function Search({ fileService }) {
   const [keyword, setKeyword] = useState("");
@@ -28,10 +27,8 @@ function Search({ fileService }) {
       await fileService
         .getAllByKeyword(keyword)
         .then((data) => {
-          // console.log("created", created);
           setKeyword("");
           setResult(data);
-          // onCreated(created); <---- soketIo에서 만들어줄것임!!
         })
         .catch(console.log);
     }
